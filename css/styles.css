@@ -97,6 +97,11 @@ nav{
 .navbar-rigth .email-arrow:hover{
     width: 10px;
 }
+.navbar-rigth .car-img:hover{
+    width: 25px;
+    background: var(--hospital-green);
+    cursor: pointer;
+}
 
 
 /* desktop-menu navbar */
@@ -190,12 +195,11 @@ nav{
     font-weight: 200;                          
 }
 
-/* carrito de compras- my norder*/
+/* carrito de compras- my order*/
 .my-order{
     position: absolute;
-    top: 61px;
-    /* display: grid;
-    place-items: center; */
+    top: 100px;
+    width: 100%;
 }
 .title{
     font-size: var(--lg);
@@ -204,8 +208,9 @@ nav{
 .my-order-container{
     display: grid;
     grid-template-rows: auto 1fr auto;
-    width: 300px;
+    width: 400px;
     height: auto;
+    margin: auto;
 }
 .my-order-content{
     display: flex;
@@ -255,6 +260,84 @@ nav{
     font-weight: bold;
 }
 
+/* my order- shoping car*/
+
+.my-order-shoping{
+    position: absolute;
+    right: 20px;
+    top: 61px;       
+}
+.container-title{
+    display: flex;
+    width: 300px;
+    margin: 20px 0;
+}
+.container-title img{
+    transform: rotate(180deg);
+    margin: 0 20px;    
+}
+.container-title img:hover{
+    width: 10px;
+    cursor: pointer;
+}
+.title{
+    font-size: var(--lg);
+    margin-bottom: 10px;
+    margin: 0;    
+}
+.my-order-container-shoping{
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    width: 300px;
+    height: auto;
+}
+.my-order-content-shoping{
+    display: flex;
+    justify-content: space-between;
+    background: var(--text-input-field);
+    border-radius: 20px;
+    padding: 0 24px;
+    margin: 20px 0;
+    align-items: center;
+}
+.shopping-cart{
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    gap: 16px;
+    margin-bottom: 24px; 
+    align-items: center;
+}
+.shopping-cart figure{
+    margin: 0;            
+}
+.shopping-cart figure img{
+    width: 70px;
+    height: 70px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+.shopping-cart p:nth-child(2){
+    color: var(--very-ligth-pink);
+}
+.shopping-cart p:nth-child(3){
+    font-size: var(--md);
+    font-weight: bold;
+}
+
+.primary-button{
+    background: var(--hospital-green);
+    border-radius: 8px;
+    border: none;
+    color: var(--white);
+    height: 40px;
+    width: 100%;
+    font-size: var(--md);
+    font-weight: bold;
+    cursor: pointer;
+}
+.primary-button:hover{
+    background: rgb(63, 124, 63);
+}
 
 
 
@@ -283,15 +366,23 @@ nav{
         display: none;
     }
     .my-order-container{
-        display: grid;
-        grid-template-rows: auto 1fr auto;
         width: 300px;
-        height: auto;
+    }
+    .my-order-shoping{
+        right: 0;
+        width: 100%;
+    }
+    .container-title,.my-order-container-shoping{
+        margin: auto;
+    }
+    .title{
+        margin: 20px 0;
     }
 }
 @media (min-width: 641px) {
     .mobile-menu{
         display: none;
     }
+    
     
 }
