@@ -12,27 +12,36 @@ const myOrderShopping = document.querySelector(".my-order-shoping")
 
 const cardsContainer = document.querySelector(".cards-container")
 
+const productDetail = document.querySelector(".product-detail")
+const productDetailclose = document.querySelector(".product-detail-close");
+
 menuEmail.addEventListener("click", showDesktopMenu )
 arrowEmail.addEventListener("click", showDesktopMenu )
 menuIcono.addEventListener("click", showMenuMobile)
 carImg.addEventListener("click", showOrderCar)
+productDetailclose.addEventListener("click", closeDetailProduct)
 
 
 function showDesktopMenu(){
     const isMyOrderShopingClose = myOrderShopping.classList.contains("inactive");
-    if(!isMyOrderShopingClose){
+    const isProductDetail = productDetail.classList.contains("inactive");
+
+    if(!isMyOrderShopingClose || !isProductDetail){
         myOrderShopping.classList.add("inactive")
+        productDetail.classList.add("inactive")
         desktopMenu.classList.toggle("inactive")
     }else{
         desktopMenu.classList.toggle("inactive")
-    }
-    
+    }    
 }
+
 function showMenuMobile(){    
     const isMyOrderShopingClose = myOrderShopping.classList.contains("inactive");
+    const isProductDetail = productDetail.classList.contains("inactive");
 
-    if(!isMyOrderShopingClose){
+    if(!isMyOrderShopingClose || !isProductDetail){
         myOrderShopping.classList.add("inactive");
+        productDetail.classList.add("inactive")
         mobileMenu.classList.toggle("inactive");
     }else{
         mobileMenu.classList.toggle("inactive");
@@ -43,20 +52,40 @@ function showMenuMobile(){
 function showOrderCar(){
     const isMobileMenuClose = mobileMenu.classList.contains("inactive");
     const isDesktopMenuClose = desktopMenu.classList.contains("inactive");
+    const isProductDetail = productDetail.classList.contains("inactive");
 
-    if(!isMobileMenuClose || !isDesktopMenuClose){
+    if(!isMobileMenuClose || !isDesktopMenuClose || !isProductDetail){
         mobileMenu.classList.add("inactive");
         desktopMenu.classList.add("inactive");
+        productDetail.classList.add("inactive");
         myOrderShopping.classList.toggle("inactive");        
     } else{
         myOrderShopping.classList.toggle("inactive"); 
     }
 }
-
-function createProducts(){
+function showDetailProduct(){
+    const isMobileMenuClose = mobileMenu.classList.contains("inactive");
+    const isDesktopMenuClose = desktopMenu.classList.contains("inactive");
+    const isMyOrderShopping = myOrderShopping.classList.contains("inactive");
     
-    return productList
+
+    if(!isMobileMenuClose || !isDesktopMenuClose || !isMyOrderShopping ){
+        mobileMenu.classList.add("inactive");
+        desktopMenu.classList.add("inactive");
+        myOrderShopping.classList.add("inactive");        
+        productDetail.classList.toggle("inactive");        
+    } else{
+    productDetail.classList.toggle("inactive")
+    }
 }
+
+function closeDetailProduct(){
+    const ifProducDetailClose = productDetail.classList.contains("inactivate")
+    if(!ifProducDetailClose){
+        productDetail.classList.add("inactive")
+    }
+}
+
 const productList = [];
     productList.push({
         name : "LAPTOP HP 14-DQ2510LA INTEL CORE I3 8GB RAM 512GB SSD 14''",
@@ -106,14 +135,16 @@ const productList = [];
 
 
 
-function renderProducts(productList){
-    for(product of productList){
+function renderProducts(arr){
+    for(product of arr){
         const productCard = document.createElement("div");
         productCard.classList.add("product-card");
     
         const productImage = document.createElement("img");
         productImage.setAttribute("src", product.image);
-        productImage.classList.add("product-img")
+        productImage.classList.add("product-img");
+        //evento de click en product
+        productImage.addEventListener('click', showDetailProduct);
     
         productCard.appendChild(productImage);
     
@@ -149,5 +180,6 @@ function renderProducts(productList){
     }
 }
 renderProducts(productList)           
+
 
 
