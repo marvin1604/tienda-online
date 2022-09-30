@@ -15,6 +15,8 @@ const cardsContainer = document.querySelector(".cards-container")
 const productDetail = document.querySelector(".product-detail")
 const productDetailclose = document.querySelector(".product-detail-close");
 
+const mainContainer = document.querySelector(".main-container")
+
 menuEmail.addEventListener("click", showDesktopMenu )
 arrowEmail.addEventListener("click", showDesktopMenu )
 menuIcono.addEventListener("click", showMenuMobile)
@@ -31,8 +33,10 @@ function showDesktopMenu(){
         productDetail.classList.add("inactive")
         desktopMenu.classList.toggle("inactive")
     }else{
+         
         desktopMenu.classList.toggle("inactive")
-    }    
+    } 
+      
 }
 
 function showMenuMobile(){    

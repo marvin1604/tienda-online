@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 :root{
-    --very-ligth-pink: #C7C7C7;
+    --very-ligth-pink: #a5a3a3;
     --text-input-field: #F7F7F7;
     --hospital-green: #ACD9B2;
     --white: #FFFFFF;
@@ -403,6 +403,7 @@ nav{
 }
 .product-info figure img:hover{
     width: 60px;
+    
 }
 
 /* detalle del producto- product ditail*/
